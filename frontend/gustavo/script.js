@@ -1,5 +1,3 @@
-/ frontend/app.js
-
 document.addEventListener('DOMContentLoaded', () => {
     // Manejar el formulario de registro
     const registerForm = document.getElementById('register-form');
@@ -92,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch('http://127.0.0.1:5000/api/protected', {
                 method: 'GET',
                 headers: {
-                    'Authorization': Bearer ${token}
+                    'Authorization': 'Bearer ' + token
                 }
             })
             .then(response => {
@@ -102,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then(data => {
-                console.log(Bienvenido, ${data.logged_in_as});
+                console.log(`Bienvenido, ${data.logged_in_as}`);
                 // Aquí puedes personalizar el dashboard
             })
             .catch(error => {
